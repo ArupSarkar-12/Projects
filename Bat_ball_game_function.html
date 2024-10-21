@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>Document</title>
+    <link rel="stylesheet"href="Bat_Ball_game.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Gupter:wght@400;500;700&family=Nanum+Gothic&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Playwrite+AR:wght@100..400&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <div class="game">
+        <div class="play">Let's Play</div>
+        
+        <h1 class="batball">Bat Ball Stump Game</h1>
+        <button id="bat"class="button"
+            onclick="let computerChoice = generateComputerCode();
+            
+            let resultMsg;
+            if(computerChoice === 'Ball'){
+                score.Win = score.Win + 1;
+                resultMsg = ' Congratulations! You Won.🤩';
+            }else if(computerChoice === 'Bat'){ 
+                score.Tie++;
+                resultMsg =`oop's! Its a tie😐`;
+            }else if(computerChoice === 'stump'){
+                score.Lose++;
+                resultMsg ='Computer has Won🥲';
+            }
+            console.log(score);
+            localStorage.setItem('score',JSON.stringify(score));                          //define local storage
+            document.querySelector('#user-move').innerText = `You have chosen Bat`;
+            document.querySelector('#computer-move').innerText = `Computer Choice is ${computerChoice}`;
+            document.querySelector('#result').innerText = resultMsg;
+            document.querySelector('#score').innerText = score.displayScore();"
+            >🏏Bat</button>
+        <button id="ball"class="button"
+            onclick="computerChoice = generateComputerCode();
+          
+            if(computerChoice === 'Ball'){
+                score.Tie++;
+                resultMsg = `oop's! Its a tie😐`;
+            }else if(computerChoice === 'Bat'){
+                score.Lose++;
+                resultMsg ='Computer has Won🥲';
+            }else if(computerChoice === 'stump'){
+                score.Win = score.Win + 1;
+                resultMsg ='Congratulations! You Won.🤩';
+            }
+            console.log(score);
+            localStorage.setItem('score',JSON.stringify(score));                          //define local storage
+            document.querySelector('#user-move').innerText = `You have chosen Ball.`;
+            document.querySelector('#computer-move').innerText = `Computer Choice is ${computerChoice}`;
+            document.querySelector('#result').innerText = resultMsg;
+            document.querySelector('#score').innerText = score.displayScore();"           
+        >🥎 Ball</button>
+        <button id="stump"class="button"
+            onclick="computerChoice = generateComputerCode();
+            
+            if(computerChoice === 'Ball'){
+                score.Lose++;
+                resultMsg = 'Computer has Won🥲';
+            }else if(computerChoice === 'Bat'){
+                score.Win = score.Win + 1;
+                resultMsg ='Congratulations! You Won.🤩';
+            }else if(computerChoice === 'stump'){
+                score.Tie++;
+                resultMsg =`oop's! Its a tie😐`;
+            }
+
+            console.log(score);
+            localStorage.setItem('score',JSON.stringify(score));                          //define local storage
+            document.querySelector('#user-move').innerText = `You have chosen Stump.`;
+            document.querySelector('#computer-move').innerText = `Computer Choice is ${computerChoice}`;
+            document.querySelector('#result').innerText = resultMsg;
+            document.querySelector('#score').innerText = score.displayScore();"
+        
+        >\|/ Stump</button>
+        <button id="reset"class="button" onclick="localStorage.clear()
+            resetScore();                                       //tp reset the display value define the values in score
+        ">Reset</button>
+
+        <div class="container">
+            <h4 id="user-move"></h4>
+            <h4 id="computer-move"></h4>
+            <h3 id="result"style="color: red"></h3>
+            <h4 id="score"></h4>
+        </div>
+    </div>
+
+
+    <script src="Bat_Ball_game.js">
+       
+    </script>
+
+</body>
+</html>
