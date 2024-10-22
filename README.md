@@ -6,4 +6,4 @@ Bat beats Ball,
 Ball beats Stump,
 Stump beats Bat
 
-Deploy - http://127.0.0.1:5500/JavaScript/Bat_ball_game_function.html
+
